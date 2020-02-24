@@ -1,0 +1,60 @@
+.parent{
+    margin-top: 5rem;
+    padding: 10%;
+    height: 800px;
+    background-color:#D2E1FF;
+   
+}
+
+.child{
+    margin-top: 4rem;
+    border-radius: 3px;
+    padding:3px;
+    background-color: white;
+}
+
+.card{
+    margin-bottom: 3px;
+    background-color:#DEDEDE;
+}
+#toggler, #toggler1{
+    background-color: #F5B705;
+    border: none;
+    width: 100%;
+    margin-bottom: 3px !important;
+    text-align: left;
+    color: #ece9e9;
+
+}
+
+input, select, textarea{
+    background-color: white !important;
+}
+label{
+    color: black !important;
+    font-weight: 600 !important;
+}
+
+#toggler2{
+    background-color: #F5B705;
+    border: none;
+    width: 100%;
+    color: #ece9e9;
+    margin-bottom: 0px !important;
+    text-align: left;
+}
+
+body{
+    background-color: white !important;
+}
+#toggler11, #toggler22, #toggler33{
+    float: right;
+    padding:4px 22px;
+    width: 100px !important;
+    background-color: #7e59cc;
+}
+
+
+.card{
+    padding:2px;
+}
