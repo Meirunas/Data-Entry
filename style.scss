@@ -1,13 +1,13 @@
 $back1:#D2E1FF;
 $back2:#DEDEDE;
-.parent{
+.parent {
     margin-top: 4rem;
     padding: 10%;
     height: 800px;
     background-color: $back1;
 }
 
-.child{
+.child {
     margin-top: 4rem;
     box-shadow: 2px 0px 12px 6px;
     border-radius: 10px;
@@ -15,17 +15,17 @@ $back2:#DEDEDE;
     background-color: white;
 }
 
-.card{
+.card {
     margin-bottom: 3px;
     border-radius: 10px;
     background-color: $back2;
 }
 
-option{
+option {
     background-color: #EDEDED !important;
 }
 
-#toggler, #toggler1{
+#toggler, #toggler1 {
     background-color: #F1AD09;
     border: none;
     border-radius: 10px;
@@ -35,29 +35,29 @@ option{
     color: #ece9e9;
 }
 
-input, textarea{
+input, textarea {
     background-color: white !important;
     border-radius: 1rem !important;
     box-shadow: 1px 1px 10px 1px grey inset;
 }
 
-select{
+select {
     background-color: #EDEDED !important;
     border-radius: 1rem !important;
     box-shadow: 1px 1px 10px 1px grey inset;
 }
 
-input:focus, select:focus, textarea:focus{
+input:focus, select:focus, textarea:focus {
     border-radius: 1rem !important;
     box-shadow: 1px 1px 10px 1px grey inset !important;
 }
 
-label{
+label {
     color: black !important;
     font-weight: 600 !important;
 }
 
-#toggler2{
+#toggler2 {
     background-color: #F1AD09;
     border: none;
     width: 100%;
@@ -67,7 +67,7 @@ label{
     text-align: left;
 }
 
-body{
+body {
     background-color: white !important;
 }
 
@@ -80,6 +80,6 @@ body{
     background-color:#494FAD;
 }
 
-.card{
+.card {
     padding:2px;
 }
