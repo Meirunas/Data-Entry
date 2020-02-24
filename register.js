@@ -35,67 +35,6 @@ class Register extends React.Component {
       }
     
       handleSubmit(event) {
-        this.validate();
-        event.preventDefault();
-      }
-      
-    toggle = () => setIsOpen(!isOpen);
-    
-    validate = () => {
-        
-        if(this.state.f_name ==''){
-            alert("please input First Name");
-            return false;
-        }
-
-        if(this.state.s_name == ''){
-            alert("please input Surname");
-            return false;
-        }
-        if(this.state.month == '0'){
-            alert("please input month");
-            return false;
-        }
-        if(Number(this.state.month) >= 1 && Number(this.state.month) <= 12  ){
-            
-        }else{
-            alert("Invalid month");
-            return false;
-        }
-        
-        if(this.state.day == '0'){
-            alert("please input day");
-            return false;
-        }
-        if(Number(this.state.day) >= 1 && Number(this.state.day) <= 31  ){
-            
-        }else{
-            alert("Invalid day");
-            return false;
-        }
-        if(this.state.year == ''){
-            alert("please input birthday");
-            return false;
-        }
-        if(Number(this.state.year) > 1900 && Number(this.state.year) < 2100  ){
-            
-        }else{
-            alert("Invalid year");
-            return false;
-        }
-        if(this.state.gender == '0'){
-            alert("please select gender.");
-            return false;
-        }
-
-        var regexp = /^\+[0-9]?()[0-9](\s|\S)(\d[0-9]{8,16})$/;
-        if(regexp.test(this.state.phone) ===false){
-          alert("Phone Number is Not Correct");
-           return false;
-        }else{
-          console.log("Phone Number is Correct");
-        }
-        
         fetch('http://localhost:8000/api/register', {
             method:'post',
             body:JSON.stringify(
@@ -107,12 +46,12 @@ class Register extends React.Component {
             }
         }).then(function(result){
             result.json().then(function(res){
-            
                 alert(res.status);
             })
         })
+        event.preventDefault();
       }
-
+    
       first = () =>{
         if(this.state.first == false){
             this.setState({
@@ -124,29 +63,96 @@ class Register extends React.Component {
             })
         }
         if(this.state.third==true){
-            $("#toggler22").click();
-            $("#toggler11").click();
-
+            $("#toggler222").click();
+       
             this.setState({
                 third:false
+            })
+        }
+        if(this.state.sec==true){
+            $("#toggler111").click();
+            this.setState({
+                sec:false
             })
         }
       }
 
       second = () => {
-            if(this.state.first==true){
+      
+        if(this.state.first==true){
+            if(this.state.f_name ==''){
+                alert("Please input First Name");
+                return false;
+            }
+    
+            if(this.state.s_name == ''){
+                alert("Please input Surname");
+                return false;
+            }
+
+            let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+            if(reg.test(this.state.email) === false)
+            {
+            alert("Email is Not Correct");
+            return false;
+            }
+            
             $("#toggler").click();
+            $("#toggler111").click();
             this.setState({
-                first:false
+                first:false,
+                sec:true,
             })
         }
       }
 
       third = () =>{
-        $("#toggler11").click();
+        var regexp = /^\+[0-9]?()[0-9](\s|\S)(\d[0-9]{8,16})$/;
+        if(regexp.test(this.state.phone) ===false){
+          alert("Phone Number is Not Correct");
+           return false;
+        }else{
+          console.log("Phone Number is Correct");
+        }
+        if(this.state.gender == '0'){
+            alert("Please select gender.");
+            return false;
+        }
+
+        if(Number(this.state.month) >= 1 && Number(this.state.month) <= 12  ){
+            
+        }else{
+            alert("Invalid month");
+            return false;
+        }
+        
+        if(this.state.day == '0'){
+            alert("Please input day");
+            return false;
+        }
+        if(Number(this.state.day) >= 1 && Number(this.state.day) <= 31  ){
+            
+        }else{
+            alert("Invalid day");
+            return false;
+        }
+        if(this.state.year == ''){
+            alert("Please input birthday");
+            return false;
+        }
+        if(Number(this.state.year) > 1900 && Number(this.state.year) < 2100  ){
+            
+        }else{
+            alert("Invalid year");
+            return false;
+        }
+
+        $("#toggler111").click();
+        $("#toggler222").click();
         
         this.setState({
-            third:true
+            third:true,
+            sec:false
         })
       }
 
@@ -168,6 +174,7 @@ class Register extends React.Component {
                                             <FormGroup>
                                                 <Label for="exampleEmail">First Name</Label>
                                                 <Input type="text" name="f_name"
+                                                autoComplete="off"
                                                 onChange={(event) => {
                                                     this.setState({f_name: event.target.value})
                                                 }}
@@ -179,6 +186,7 @@ class Register extends React.Component {
                                             <FormGroup>
                                                 <Label for="exampleEmail">Surname</Label>
                                                 <Input type="text" name="s_name"
+                                                autoComplete="off"
                                                 onChange={(event) => {
                                                     this.setState({s_name: event.target.value})
                                                 }}
@@ -191,7 +199,6 @@ class Register extends React.Component {
                                             <FormGroup>
                                                 <Label for="exampleEmail">Email Address</Label>
                                                 <Input type="email" autoComplete="off"
-                                                
                                                 name="email"
                                                     onChange={(event) => {
                                                         this.setState({email: event.target.value})
@@ -201,6 +208,8 @@ class Register extends React.Component {
                                         </Col>
                                     </Row>
                                 <Button type="button" id="toggler11" onClick={() => this.second()} style={{ marginBottom: '1rem' }}>Next ></Button>
+                                <Button type="button" id="toggler111" style={{display:"none"}}>nt</Button>
+                                
                                 </CardBody>
                             </Card>
                             </UncontrolledCollapse>
@@ -208,7 +217,7 @@ class Register extends React.Component {
                             <Button type="button" id="toggler1" style={{ marginBottom: '1rem' }}>
                             Step 2: More comments
                             </Button>
-                            <UncontrolledCollapse toggler="#toggler11">
+                            <UncontrolledCollapse toggler="#toggler111">
                             <Card className="card">
                                 <CardBody>
                                     <Row>
@@ -216,6 +225,7 @@ class Register extends React.Component {
                                             <FormGroup>
                                                 <Label for="exampleEmail">Telephone number</Label>
                                                 <Input type="text" name="phone"
+                                                autoComplete="off"
                                                 onChange={(event) => {
                                                     this.setState({phone: event.target.value})
                                                 }}
@@ -227,6 +237,7 @@ class Register extends React.Component {
                                             <FormGroup>
                                                 <Label for="exampleEmail">Gender</Label>
                                                 <Input type="select" name="select"
+                                                autoComplete="off"
                                                 onChange={(event) => {
                                                     this.setState({gender: event.target.value})
                                                 }}
@@ -247,8 +258,9 @@ class Register extends React.Component {
                                         
                                         <Col sm={1}>
                                             <FormGroup>
-                                                {}
+                                              
                                                 <Input type="text" width={10} name="birth"
+                                                autoComplete="off"
                                                 onChange={(event) => {
                                                     this.setState({day: event.target.value})
                                                 }}
@@ -259,8 +271,9 @@ class Register extends React.Component {
                                         </Col>
                                         <Col sm={1}>
                                             <FormGroup>
-                                                {}
+                                              
                                                 <Input type="text" name="birth"
+                                                autoComplete="off"
                                                 onChange={(event) => {
                                                     this.setState({month: event.target.value})
                                                 }}
@@ -271,8 +284,9 @@ class Register extends React.Component {
                                         </Col>
                                         <Col sm={2}>
                                             <FormGroup>
-                                                {}
+                                             
                                                 <Input type="text" name="birth"
+                                                autoComplete="off"
                                                 style={{padding:"10px 10px"}}
                                                 onChange={(event) => {
                                                     this.setState({year: event.target.value})
@@ -282,6 +296,8 @@ class Register extends React.Component {
                                         </Col>
                                     </Row>
                                     <Button type="button" onClick={() => this.third()} id="toggler22" style={{ marginBottom: '1rem' }}>Next ></Button>
+                                    <Button type="button" id="toggler222" style={{ marginBottom: '1rem', display:"none" }}>Next ></Button>
+                                    
                                 </CardBody>
                             </Card>
                             </UncontrolledCollapse>
@@ -289,7 +305,7 @@ class Register extends React.Component {
                             <Button type="button" id="toggler2" style={{ marginBottom: '1rem' }}>
                             Step 3: Final comments
                             </Button>
-                            <UncontrolledCollapse toggler="#toggler22">
+                            <UncontrolledCollapse toggler="#toggler222">
                             <Card className="card">
                                 <CardBody>
                                     <Row>
@@ -307,7 +323,7 @@ class Register extends React.Component {
                                         
                                     </Row>
                                     
-                                    <Button type="submit" id="toggler33" style={{ marginBottom: '1rem' }}>Save</Button>
+                                    <Button type="submit" id="toggler33" style={{ marginBottom: '1rem' }}>Next ></Button>
                                     
                                 </CardBody>
                             </Card>
