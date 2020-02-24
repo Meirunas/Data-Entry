@@ -1,25 +1,34 @@
+$back1:#D2E1FF;
+$back2:#DEDEDE;
 .parent{
-    margin-top: 5rem;
+    margin-top: 4rem;
     padding: 10%;
     height: 800px;
-    background-color:#D2E1FF;
+    background-color: $back1;
    
 }
 
 .child{
     margin-top: 4rem;
-    border-radius: 3px;
-    padding:3px;
+    box-shadow: 2px 0px 12px 6px;
+    border-radius: 10px;
+    padding:3px 3px 1px 3px;
     background-color: white;
 }
 
 .card{
     margin-bottom: 3px;
-    background-color:#DEDEDE;
+    border-radius: 10px;
+    background-color: $back2;
+}
+
+option{
+    background-color: #EDEDED !important;
 }
 #toggler, #toggler1{
-    background-color: #F5B705;
+    background-color: #F1AD09;
     border: none;
+    border-radius: 10px;
     width: 100%;
     margin-bottom: 3px !important;
     text-align: left;
@@ -27,20 +36,35 @@
 
 }
 
-input, select, textarea{
+input, textarea{
     background-color: white !important;
+    border-radius: 1rem !important;
+    box-shadow: 1px 1px 10px 1px grey inset;
 }
+
+select{
+    background-color: #EDEDED !important;
+    border-radius: 1rem !important;
+    box-shadow: 1px 1px 10px 1px grey inset;
+}
+
+input:focus, select:focus, textarea:focus{
+    border-radius: 1rem !important;
+    box-shadow: 1px 1px 10px 1px grey inset !important;
+}
+
 label{
     color: black !important;
     font-weight: 600 !important;
 }
 
 #toggler2{
-    background-color: #F5B705;
+    background-color: #F1AD09;
     border: none;
     width: 100%;
+    border-radius: 10px;
     color: #ece9e9;
-    margin-bottom: 0px !important;
+    margin-bottom: 3px !important;
     text-align: left;
 }
 
@@ -48,12 +72,13 @@ body{
     background-color: white !important;
 }
 #toggler11, #toggler22, #toggler33{
+    margin-bottom: 3px !important;
     float: right;
     padding:4px 22px;
+    border-radius: 10px;
     width: 100px !important;
-    background-color: #7e59cc;
+    background-color:#494FAD;
 }
-
 
 .card{
     padding:2px;
